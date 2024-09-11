@@ -11,7 +11,7 @@ set -vx
 wget -qO- uny.nu/pkg | bash -s buildsys
 
 ### Installing build dependencies
-#unyp install python expat openssl
+unyp install python openssl pcre2
 
 #pip3_bin=(/uny/pkg/python/*/bin/pip3)
 #"${pip3_bin[0]}" install --upgrade pip
@@ -35,7 +35,7 @@ mkdir -pv /uny/sources
 cd /uny/sources || exit
 
 pkgname="git"
-pkggit="https://github.com/git/git.git refs/tags/*"
+pkggit="https://git.kernel.org/pub/scm/git/git.git refs/tags/*"
 gitdepth="--depth=1"
 
 ### Get version info from git remote
@@ -77,11 +77,15 @@ get_include_paths
 
 unset LD_RUN_PATH
 
+make configure
+
 ./configure \
     --prefix=/uny/pkg/"$pkgname"/"$pkgver"
+    --with-gitconfig=/etc/gitconfig \
+    --with-python=python3
 
 make -j"$(nproc)"
-make -j"$(nproc)" check 
+
 make -j"$(nproc)" install
 
 ####################################################
