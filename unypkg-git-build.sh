@@ -81,7 +81,7 @@ make configure
 
 ./configure \
     --prefix=/uny/pkg/"$pkgname"/"$pkgver"
-    --with-gitconfig=/etc/gitconfig \
+    --with-gitconfig=/etc/uny/gitconfig \
     --with-python=python3
 
 make -j"$(nproc)"
