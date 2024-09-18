@@ -78,7 +78,8 @@ get_include_paths
 #unset LD_RUN_PATH
 
 make configure
-mkdir -pv /etc/uny/gitconfig
+mkdir -pv /etc/uny
+touch /etc/uny/gitconfig
 
 ./configure \
     --prefix=/uny/pkg/"$pkgname"/"$pkgver"
