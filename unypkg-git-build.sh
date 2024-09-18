@@ -89,8 +89,8 @@ make -j"$(nproc)"
 
 make -j"$(nproc)" install
 
-ln -s ../libexec/git-core/git-remote-https /uny/pkg/"$pkgname"/"$pkgver"/bin/git-remote-https
-ln -s ../libexec/git-core/git-imap-send /uny/pkg/"$pkgname"/"$pkgver"/bin/git-imap-send
+ln ../libexec/git-core/git-remote-https /uny/pkg/"$pkgname"/"$pkgver"/bin/git-remote-https
+ln ../libexec/git-core/git-imap-send /uny/pkg/"$pkgname"/"$pkgver"/bin/git-imap-send
 
 ####################################################
 ### End of individual build script
