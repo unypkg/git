@@ -78,6 +78,7 @@ get_include_paths
 unset LD_RUN_PATH
 
 make configure
+mkdir -pv /etc/uny
 
 ./configure \
     --prefix=/uny/pkg/"$pkgname"/"$pkgver"
